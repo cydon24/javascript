@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Odd Numbers from 1 to 200</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    #showBtn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #showBtn:hover {
+      background-color: #218838;
+    }
+
+    #resetBtn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    #resetBtn:hover {
+      background-color: #c82333;
+    }
+
+    #output {
+      margin-top: 20px;
+      text-align: left;
+      max-height: 300px;
+      overflow-y: auto;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Odd Numbers from 1 to 200</h2>
+    <button id="showBtn" onclick="printOddNumbers()">Show Odd Numbers</button>
+    <button id="resetBtn" onclick="resetOutput()">Reset</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function printOddNumbers() {
+      const outputDiv = document.getElementById('output');
+      let result = '';
+      for (let i = 1; i <= 200; i += 2) {
+        result += i + (i < 199 ? ', ' : '');
+      }
+      outputDiv.innerText = result;
+    }
+
+    function resetOutput() {
+      document.getElementById('output').innerText = '';
+    }
+  </script>
+
+</body>
+</html>

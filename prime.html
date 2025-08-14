@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prime Number Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Prime Number Checker</h2>
+    <input type="number" id="number" placeholder="Enter a number" />
+    <br />
+    <button onclick="checkPrime()">Check</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkPrime() {
+        const num = parseInt(document.getElementById("number").value);
+        const resultDiv = document.getElementById("result");
+
+        if (isNaN(num) || num < 1) {
+            resultDiv.innerText = "Please enter a valid positive integer.";
+            return;
+        }
+
+        if (num === 1) {
+            resultDiv.innerText = "1 is neither prime nor composite.";
+            return;
+        }
+
+        for (let i = 2; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+                resultDiv.innerText = `${num} is NOT a prime number.`;
+                return;
+            }
+        }
+
+        resultDiv.innerText = `${num} is a PRIME number!`;
+    }
+</script>
+
+</body>
+</html>

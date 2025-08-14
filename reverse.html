@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reverse Number</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 320px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Reverse a Number</h2>
+    <input type="number" id="numberInput" placeholder="Enter a number" />
+    <button onclick="reverseNumber()">Reverse</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    function reverseNumber() {
+        const input = document.getElementById('numberInput').value.trim();
+
+        if(input === '') {
+            document.getElementById('result').innerText = 'Please enter a number.';
+            return;
+        }
+
+        // Handle negative numbers
+        const isNegative = input.startsWith('-');
+        const numStr = isNegative ? input.slice(1) : input;
+
+        // Reverse the number string
+        const reversedStr = numStr.split('').reverse().join('');
+
+        // Convert back to number to avoid leading zeros in result
+        const reversedNum = parseInt(reversedStr);
+
+        // Add negative sign back if needed
+        const finalResult = isNegative ? -reversedNum : reversedNum;
+
+        document.getElementById('result').innerText = `Reversed Number: ${finalResult}`;
+    }
+</script>
+
+</body>
+</html>
